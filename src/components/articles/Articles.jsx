@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import React, { useState } from "react";
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import {
   ArticleBody,
   ArticleContainer,
@@ -16,17 +16,17 @@ import {
   ReadMore,
   ToggleList,
   ToggleListItem,
-} from "./articles.styles";
+} from './articles.styles';
 
 /**
  * Render an <Article> component.
  *
- * @param {Object}     props                 Props.
- * @param {Array}      props.newArticles     The new articles passed by the homepage.
+ * @param {Object} props                  Props.
+ * @param {Array}  props.filteredArticles The filtered articles passed by the homepage.
  *
  * @return {JSX.Element}
  */
-export const Article = ({ newArticles }) => {
+export const Article = ({ filteredArticles }) => {
   const [count, setCounter] = useState(0);
 
   /**
@@ -46,12 +46,12 @@ export const Article = ({ newArticles }) => {
         </ToggleList>
       </div>
       <div>
-        {newArticles.map((article) => (
-          <ArticleContainer key={article._id}>
+        {filteredArticles.map((article) => (
+          <ArticleContainer key={article.id}>
             <ArticleWrapper>
               <AuthorInfo>
                 <div>
-                  <Avatar src={article.imgUrl}></Avatar>
+                  <Avatar src={article.imgUrl} />
                 </div>
                 <AuthorDetails>
                   <AuthorName> {article.name}</AuthorName>
@@ -76,7 +76,17 @@ export const Article = ({ newArticles }) => {
 };
 
 Article.propTypes = {
-  newArticles: PropTypes.arrayOf(Object).isRequired,
+  filteredArticles: PropTypes.arrayOf(
+    PropTypes.shape({
+      body: PropTypes.string,
+      description: PropTypes.string,
+      id: PropTypes.number,
+      imgUrl: PropTypes.string,
+      name: PropTypes.string,
+      publishDate: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default Article;

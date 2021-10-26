@@ -1,8 +1,10 @@
-import styled from "styled-components";
-import { ReactComponent as heart } from "../../assests/heart.svg";
+import styled from 'styled-components';
+import colors from 'styles/global-colors';
+import { ReactComponent as heart } from '../../assests/heart.svg';
+import breakpoints from '../../styles/breaking-points';
 
 export const ArticleContainer = styled.div`
-  border-top: 0.063rem solid #0000001a;
+  border-top: 0.063rem solid ${colors.Gray90};
   padding: 1.5rem 0;
 `;
 
@@ -34,14 +36,14 @@ export const AuthorDetails = styled.div`
 `;
 
 export const AuthorName = styled.p`
-  color: #5cb85c;
+  color: ${colors.fern};
   cursor: pointer;
   display: block;
   font-weight: 500;
 `;
 
 export const PublishDate = styled.p`
-  color: #bbb;
+  color: ${colors.lightGrey};
   display: block;
   font-size: 0.8rem;
   line-height: 0.5rem;
@@ -55,7 +57,7 @@ export const ArticleTitle = styled.h1`
 `;
 
 export const ArticleBody = styled.p`
-  color: #999;
+  color: ${colors.lightGrey};
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.3rem;
@@ -63,7 +65,7 @@ export const ArticleBody = styled.p`
 `;
 
 export const ReadMore = styled.p`
-  color: #bbb;
+  color: ${colors.lightGrey};
   cursor: pointer;
   font-size: 0.8rem;
   font-weight: 300;
@@ -77,8 +79,8 @@ export const ToggleList = styled.ul`
 `;
 
 export const ToggleListItem = styled.li`
-  border-bottom: 0.125rem solid #5cb85c;
-  color: #5cb85c;
+  border-bottom: 0.125rem solid ${colors.fern};
+  color: ${colors.fern};
   cursor: pointer;
   padding: 0.625rem 0;
   width: fit-content;
@@ -88,22 +90,25 @@ export const Holder = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 40rem;
-  @media screen and (max-width: 64.625rem) {
+
+  @media screen and (max-width: ${breakpoints.desktop}) {
     min-width: 30rem;
   }
-  @media screen and (max-width: 54.625rem) {
+
+  @media screen and (max-width: ${breakpoints.tablet}) {
     min-width: 25rem;
   }
-  @media screen and (min-width: 20rem) {
+
+  @media screen and (min-width: ${breakpoints.mobile}) {
     min-width: 10rem;
   }
 `;
 
 export const LikeButton = styled.button`
-  background-color: transparent;
-  border: 0.125rem solid #5cb85c;
+  background-color: ${colors.transparent};
+  border: 0.125rem solid ${colors.fern};
   border-radius: 0.2rem;
-  color: #5cb85c;
+  color: ${colors.fern};
   column-gap: 0.313rem;
   cursor: pointer;
   display: flex;
@@ -111,11 +116,12 @@ export const LikeButton = styled.button`
   font-weight: 400;
   height: fit-content;
   padding: 0.25rem 0.5rem;
+
   &:hover {
-    background-color: #5cb85c;
-    color: #ffffff;
+    background-color: ${colors.fern};
+    color: ${colors.white};
     path {
-      fill: #ffffff;
+      fill: ${colors.white};
     }
   }
 `;

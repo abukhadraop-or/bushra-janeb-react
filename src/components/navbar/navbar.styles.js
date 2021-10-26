@@ -1,4 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import breakpoints from 'styles/breaking-points';
+import colors from 'styles/global-colors';
 
 export const NavbarContainer = styled.div`
   margin: 0 auto;
@@ -16,16 +18,17 @@ export const Navbar = styled.nav`
 export const Menu = styled.div`
   cursor: pointer;
   font-size: 1.563rem;
-  @media screen and (min-width: 60rem) {
+
+  @media screen and (min-width: ${breakpoints.desktop}) {
     display: none;
   }
 `;
 
 export const Links = styled.ul`
-  background-color: #f3f3f3;
-  color: black;
-  display: ${({ isNavClicked }) => (isNavClicked ? "static" : "none")};
-  font-family: "Source Sans Pro", sans-serif;
+  background-color: ${colors.concrete};
+  color: ${colors.black};
+  display: ${({ isNavOpen }) => (isNavOpen ? 'static' : 'none')};
+  font-family: 'Source Sans Pro', sans-serif;
   height: 38.2%;
   min-width: 90%;
   padding: 0;
@@ -35,11 +38,12 @@ export const Links = styled.ul`
   transform: translate(-50%, 0);
   transition: 0.5s;
 
-  @media screen and (min-width: 21.438rem) {
+  @media screen and (min-width: ${breakpoints.mobileWide}) {
     height: 33.2%;
   }
-  @media screen and (min-width: 60rem) {
-    background-color: #ffffff;
+
+  @media screen and (min-width: ${breakpoints.desktop}) {
+    background-color: ${colors.white};
     border-radius: 0;
     display: inline-flex;
     justify-content: flex-end;
@@ -59,23 +63,24 @@ export const LinksListItem = styled.li`
   padding-top: 2.188rem;
   text-align: center;
 
-  @media screen and (min-width: 60rem) {
+  @media screen and (min-width: ${breakpoints.desktop}) {
     padding-top: 0;
   }
 `;
 
 export const Anchor = styled.a`
-  color: #0000004d;
+  color: ${colors.midnightBlue};
   cursor: pointer;
   font-size: 0.99rem;
   text-decoration: none;
+
   &:hover {
-    color: #000000b3;
+    color: ${colors.Gray90};
   }
 `;
 
 export const TitleLink = styled.a`
-  color: #5cb85c;
+  color: ${colors.fern};
   cursor: pointer;
-  font: 1.5rem "Titillium Web", sans-serif;
+  font: 1.5rem 'Titillium Web', sans-serif;
 `;

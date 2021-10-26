@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import colors from 'styles/global-colors';
 
 export const Container = styled.div`
   margin: 0 auto;
@@ -16,16 +17,19 @@ export const UnorderedListPagination = styled.ul`
 `;
 
 export const PageButton = styled.button`
-  background-color: ${(props) => (props.isActive ? `#5cb85c` : `#fff`)};
-  border: 0.063rem solid #ddd;
-  color: ${(props) => (props.isActive ? `#ffffff` : `#5cb85c`)};
+  background-color: ${(props) =>
+    props.isActive ? `${colors.fern}` : `${colors.white}`};
+  border: 0.063rem solid ${colors.veryLightGrey};
+  color: ${(props) => (props.isActive ? `${colors.white}` : `${colors.fern}`)};
   cursor: pointer;
   margin-left: -1px;
   padding: 0.5rem 0.75rem;
   text-decoration: none;
+
   &:hover {
-    background-color: #eceeef;
+    background-color: ${colors.aliceBlue};
   }
+
   &:first-child {
     border-bottom-left-radius: 0.5rem;
     border-top-left-radius: 0.5rem;

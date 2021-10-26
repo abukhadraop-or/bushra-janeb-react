@@ -1,12 +1,12 @@
-import Article from "components/articles/Articles";
-import Banner from "components/banner/Banner";
-import Pagination from "components/pagination/Pagination";
-import Tag from "components/tags/Tags";
-import React, { useState } from "react";
-import { getArticles } from "services/fakeArticlesService";
-import { getTags } from "services/fakeTagsService";
-import { paginate } from "utils/paginate";
-import { HomePageContainer } from "./homePage.styles";
+import { Article } from "components/Articles/Articles";
+import Banner from "components/Banner/Banner";
+import { Pagination } from "components/Pagination/Pagination";
+import Tag from "components/Tags/Tags";
+import React, { useEffect, useState } from "react";
+import { getArticles } from "services/fake-articles-service";
+import { getTags } from "services/fake-tags-service";
+import paginate from "utils/paginate";
+import HomePageContainer from "./home-page.styles";
 
 /**
  * Render the <HomePage> component.
@@ -14,15 +14,27 @@ import { HomePageContainer } from "./homePage.styles";
  * @return {JSX.Element}
  */
 export const Home = () => {
-  const [articles] = useState(getArticles);
+  const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentTag, setCurrentTag] = useState("");
   const filtered = currentTag
     ? articles.filter((article) => article.title === currentTag.name)
     : articles;
   const [pageSize] = useState(10);
-  const newArticles = paginate(filtered, currentPage, pageSize);
-  const [tags] = useState(getTags);
+  const filteredArticles = paginate(filtered, currentPage, pageSize);
+  const [tags, setTags] = useState([]);
+
+  // Handles initial state.
+  useEffect(() => {
+    const getData = async () => {
+      const result = await getArticles();
+      const tag = await getTags();
+      setArticles(result);
+      setTags(tag);
+    };
+
+    getData();
+  }, []);
 
   /**
    * Handle onPageChange event.
@@ -51,7 +63,7 @@ export const Home = () => {
     <>
       <Banner />
       <HomePageContainer>
-        <Article newArticles={newArticles} />
+        <Article filteredArticles={filteredArticles} />
         <Tag
           onTagSelect={handleTagSelect}
           selectedTag={currentTag}

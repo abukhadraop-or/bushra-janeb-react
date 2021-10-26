@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import colors from 'styles/global-colors';
 
 export const BannerContainer = styled.div`
   align-items: center;
-  background-color: #5cb85c;
-  box-shadow: inset 0 -0.438rem 0.563rem -0.438rem #00000066;
+  background-color: ${colors.fern};
+  box-shadow: inset 0 -0.438rem 0.563rem -0.438rem ${colors.darkBlue};
   display: flex;
   flex-direction: column;
   height: fit-content;
@@ -20,7 +21,7 @@ export const BannerWrapper = styled.div`
 `;
 
 export const BannerHeading = styled.p`
-  color: #fff;
+  color: ${colors.white};
   font-size: 1.5rem;
   font-weight: 300 !important;
   margin-bottom: 0;
