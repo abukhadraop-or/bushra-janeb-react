@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import breakpoints from 'styles/breaking-points';
 
-const HomePageContainer = styled.div`
+export const HomePageContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -15,4 +15,7 @@ const HomePageContainer = styled.div`
   }
 `;
 
-export default HomePageContainer;
+export const ArticleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

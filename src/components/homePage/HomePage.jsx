@@ -1,13 +1,13 @@
-import { Article } from "components/Articles/Articles";
-import Banner from "components/Banner/Banner";
-import { Pagination } from "components/Pagination/Pagination";
-import Tag from "components/Tags/Tags";
-import React, { useEffect, useState } from "react";
-import { getArticles } from "services/fake-articles-service";
-import { getTags } from "services/fake-tags-service";
-import paginate from "utils/paginate";
-import HomePageContainer from "./home-page.styles";
-
+import { Article } from 'components/Articles/Articles';
+import Banner from 'components/Banner/Banner';
+import { Pagination } from 'components/Pagination/Pagination';
+import Tag from 'components/Tags/Tags';
+import React, { useEffect, useState } from 'react';
+import { getArticles } from 'services/fake-articles-service';
+import { getTags } from 'services/fake-tags-service';
+import paginate from 'utils/paginate';
+import { ArticleCard } from '../SharedComponents/ArticleCard/ArticleCard';
+import { ArticleContainer, HomePageContainer } from './home-page.styles';
 /**
  * Render the <HomePage> component.
  *
@@ -16,7 +16,7 @@ import HomePageContainer from "./home-page.styles";
 export const Home = () => {
   const [articles, setArticles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [currentTag, setCurrentTag] = useState("");
+  const [currentTag, setCurrentTag] = useState('');
   const filtered = currentTag
     ? articles.filter((article) => article.title === currentTag.name)
     : articles;
@@ -46,7 +46,7 @@ export const Home = () => {
     window.scrollTo({
       top: 0,
       left: 100,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -63,7 +63,10 @@ export const Home = () => {
     <>
       <Banner />
       <HomePageContainer>
-        <Article filteredArticles={filteredArticles} />
+        <ArticleContainer>
+          <Article />
+          <ArticleCard filteredArticles={filteredArticles} />
+        </ArticleContainer>
         <Tag
           onTagSelect={handleTagSelect}
           selectedTag={currentTag}
