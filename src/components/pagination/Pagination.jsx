@@ -25,28 +25,30 @@ export const Pagination = ({
   pageSize,
 }) => {
   const pagesCount = Math.ceil(itemCount / pageSize);
-
-  if (pagesCount === 1) return null;
   const pages = _.range(1, pagesCount + 1);
 
   return (
-    <Container>
-      <UnorderedListPagination>
-        <li>
-          {pages.map((page) => (
-            <PageButton
-              isActive={page === currentPage}
-              key={page}
-              onClick={() => {
-                onPageChange(page);
-              }}
-            >
-              {page}
-            </PageButton>
-          ))}
-        </li>
-      </UnorderedListPagination>
-    </Container>
+    <>
+      {pagesCount > 1 && (
+        <Container>
+          <UnorderedListPagination>
+            <li>
+              {pages.map((page) => (
+                <PageButton
+                  isActive={page === currentPage}
+                  key={page}
+                  onClick={() => {
+                    onPageChange(page);
+                  }}
+                >
+                  {page}
+                </PageButton>
+              ))}
+            </li>
+          </UnorderedListPagination>
+        </Container>
+      )}
+    </>
   );
 };
 

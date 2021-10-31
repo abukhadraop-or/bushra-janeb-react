@@ -59,6 +59,8 @@ export const Home = () => {
     setCurrentTag(tag);
     setCurrentPage(1);
   };
+  // console.log(tags);
+  // console.log(filteredArticles);
   return (
     <>
       <Banner />
