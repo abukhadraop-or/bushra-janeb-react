@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag should match snapshot 1`] = `
+<styled.div>
+  <styled.p>
+     Popular Tags 
+  </styled.p>
+  <styled.div>
+    <styled.div
+      key="1"
+      onClick={[Function]}
+    >
+      C++
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

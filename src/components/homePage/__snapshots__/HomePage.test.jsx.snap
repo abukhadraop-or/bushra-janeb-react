@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> should match snapshot 1`] = `
+<Fragment>
+  <Banner />
+  <styled.div>
+    <styled.div>
+      <Article />
+      <ArticleCard
+        filteredArticles={Array []}
+      />
+    </styled.div>
+    <Tag
+      onTagSelect={[Function]}
+      selectedTag=""
+      tags={Array []}
+    />
+  </styled.div>
+  <Pagination
+    currentPage={1}
+    itemCount={0}
+    onPageChange={[Function]}
+    pageSize={10}
+  />
+</Fragment>
+`;
+
+exports[`Home should match snapshot 1`] = `
+<Fragment>
+  <Banner />
+  <styled.div>
+    <styled.div>
+      <Article />
+      <ArticleCard
+        filteredArticles={Array []}
+      />
+    </styled.div>
+    <Tag
+      onTagSelect={[Function]}
+      selectedTag=""
+      tags={Array []}
+    />
+  </styled.div>
+  <Pagination
+    currentPage={1}
+    itemCount={0}
+    onPageChange={[Function]}
+    pageSize={10}
+  />
+</Fragment>
+`;
